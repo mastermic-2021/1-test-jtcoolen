@@ -9,8 +9,10 @@ decode(v) = {
 text=readstr("input.txt")[1];
 k=encode("haricot");
 
+vigenere_decrypt(c,k,n) = vector(#c,i,(c[i] - k[(i-1) % #k + 1] + n) % n);
 
-\\ resoudre l'exercice, bien mettre des ; a la fin des lignes
+text=encode(text);
+dechiffre = vigenere_decrypt(text,k,27);
+clair = decode(dechiffre);
 
-\\ a la fin, faire simplement
-\\ print(clair);
+print(clair);
